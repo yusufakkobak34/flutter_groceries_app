@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/view/login/welcome/welcome_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,7 +20,8 @@ class _SplashViewState extends State<SplashView> {
   }
 
   void startApp() async {
-    
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const WelcomeView()));
   }
 
   @override
