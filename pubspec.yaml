@@ -94,7 +94,7 @@ flutter:
       - asset: assets/font/Airbnb-Cereald-Medium.otf          
   - family: Sveningsson
     fonts: 
-      - asset: assets/font/Sveninggson.ttf
+      - asset: assets/font/Sveningsson.ttf
   #    
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

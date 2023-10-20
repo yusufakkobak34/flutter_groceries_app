@@ -30,11 +30,13 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
       backgroundColor: TColor.primary,
       body: Stack(
+        alignment: Alignment.center,
         children: [
-          Image.asset(
-            "assets/img/splash_logo.png",
-            width: media.width * 0.5,
-            fit: BoxFit.cover,
+          Center(
+            child: Image.asset(
+              "assets/img/splash_logo.png",
+              width: media.width * 0.5,
+            ),
           ),
         ],
       ),
