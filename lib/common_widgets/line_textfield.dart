@@ -6,7 +6,12 @@ class LineTextField extends StatelessWidget {
   final String title;
   final String placeholder;
   final Widget? right;
-  const LineTextField({super.key, required this.controller, required this.title, required this.placeholder, this.right});
+  const LineTextField(
+      {super.key,
+      required this.controller,
+      required this.title,
+      required this.placeholder,
+      this.right});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class LineTextField extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            color: TColor.secondaryText,
+            color: TColor.textTitle,
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
