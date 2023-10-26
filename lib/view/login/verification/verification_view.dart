@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
+import 'package:flutter_groceries_app/view/login/select_location/select_location_view.dart';
 
 class VerificationView extends StatefulWidget {
   const VerificationView({super.key});
@@ -85,7 +86,13 @@ class _VerificationViewState extends State<VerificationView> {
                         ),
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SelectLocationView()));
+                          },
                           child: Container(
                             width: 60,
                             height: 60,
