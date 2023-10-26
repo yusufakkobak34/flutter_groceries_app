@@ -47,14 +47,27 @@ class RoundIconButton extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(19)),
       minWidth: double.maxFinite,
       elevation: 0.1,
-      color: TColor.primary,
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-        ),
+      color: bgColor,
+      child: Row(
+        children: [
+          Image.asset(
+            icon,
+            width: 20,
+            height: 20,
+            fit: BoxFit.contain,
+          ),
+          const SizedBox(
+            width: 30,
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }
