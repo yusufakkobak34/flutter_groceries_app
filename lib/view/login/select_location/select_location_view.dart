@@ -48,7 +48,11 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset("assets/img/select_location.png", width: media.width * 0.7),
+                    Image.asset("assets/img/select_location.png",
+                        width: media.width * 0.6),
+                    SizedBox(
+                      height: media.width * 0.1,
+                    ),
                     Text(
                       "Konumuzu seçin",
                       style: TextStyle(
@@ -56,6 +60,9 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                         fontSize: 26,
                         fontWeight: FontWeight.w600,
                       ),
+                    ),
+                    SizedBox(
+                      height: media.width * 0.04,
                     ),
                     Text(
                       "Yakınınızdaki marketlere,kampanyalara\nulaşabilmek için konumunuzu seçin",
@@ -66,11 +73,58 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: media.width * 0.1,
                     ),
-                    
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Bölgeniz",
+                          style: TextStyle(
+                            color: TColor.textTitle,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton(
+                                onChanged: (sObj) {},
+                                icon: Icon(Icons.expand_more,
+                                    color: TColor.textTitle),
+                                hint: Text(
+                                  "Bölgeniz",
+                                  style: TextStyle(
+                                    color: TColor.placeholder,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                isExpanded: true,
+                                items: ["Bölge 1", "Bölge 2"].map((obj) {
+                                  return DropdownMenuItem(
+                                      value: obj,
+                                      child: Text(
+                                        "Bölgeniz",
+                                        style: TextStyle(
+                                            color: TColor.secondaryText,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600),
+                                      ));
+                                }).toList()),
+                          ),
+                        ),
+                        Container(
+                          width: double.maxFinite,
+                          height: 1,
+                          color: const Color(0xffE2E2E2),
+                        )
+                      ],
+                    ),
+                    Row(),
                   ],
                 ),
               ),
