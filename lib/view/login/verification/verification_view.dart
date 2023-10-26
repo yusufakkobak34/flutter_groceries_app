@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
 
 class VerificationView extends StatefulWidget {
   const VerificationView({super.key});
@@ -62,36 +63,46 @@ class _VerificationViewState extends State<VerificationView> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
+                    LineTextField(
+                        controller: txtOTP,
+                        title: "Kod",
+                        placeholder: "- - - -"),
+                    SizedBox(
+                      height: media.width * 0.3,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Kod",
-                          style: TextStyle(
-                            color: TColor.secondaryText,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Yeniden kod gönder",
+                            style: TextStyle(
+                                color: TColor.primary,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
-                        TextField(
-                          controller: txtOTP,
-                          keyboardType: TextInputType.phone,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            hintText: "- - - -",
-                            hintStyle: TextStyle(
-                                color: TColor.placeholder, fontSize: 17),
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {},
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: TColor.primary,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Image.asset(
+                              "assets/img/next.png",
+                              width: 20,
+                              height: 20,
+                            ),
                           ),
-                        ),
-                        Container(
-                          width: double.maxFinite,
-                          height: 1,
-                          color: const Color(0xffE2E2E2),
                         ),
                       ],
-                    ),
+                    )
                   ],
                 ),
               ),
