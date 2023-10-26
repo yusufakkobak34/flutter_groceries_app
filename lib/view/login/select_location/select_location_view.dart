@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/dropdown.dart';
+import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 
 class SelectLocationView extends StatefulWidget {
   const SelectLocationView({super.key});
@@ -86,10 +87,19 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                       height: media.width * 0.07,
                     ),
                     Dropdown(
-                        title: "Şehriniz",
-                        placeholder: "Şehrinizi seçin",
-                        valueList: const ["Şehir 1", "Şehir 2"],
-                        didChange: (sObj) {}),
+                      title: "Şehriniz",
+                      placeholder: "Şehrinizi seçin",
+                      valueList: const ["Şehir 1", "Şehir 2"],
+                      didChange: (sObj) {},
+                    ),
+                    SizedBox(
+                      height: media.width * 0.1,
+                    ),
+
+                    RoundButton(
+                    title: "Kaydet",
+                    onPressed: () {},
+                    )
                   ],
                 ),
               ),
