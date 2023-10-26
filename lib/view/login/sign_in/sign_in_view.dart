@@ -2,6 +2,7 @@ import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_groceries_app/view/login/verification/verification_view.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -98,18 +99,16 @@ class _SignInViewState extends State<SignInView> {
                                   height: 35,
                                   child: countryCode.flagImage(),
                                 ),
-
                                 Text(
                                   countryCode.dialCode,
                                   style: TextStyle(
                                       color: TColor.primaryText,
                                       fontSize: 18,
-                                      fontWeight: FontWeight.w600
-                                  ),
+                                      fontWeight: FontWeight.w600),
                                 ),
-                              
-                              const SizedBox(width: 15,),
-
+                                const SizedBox(
+                                  width: 15,
+                                ),
                               ],
                             ),
                           ),
@@ -148,7 +147,13 @@ class _SignInViewState extends State<SignInView> {
                         title: "Google ile devam et",
                         icon: "assets/img/google_logo.png",
                         bgColor: Color(0xff5383EC),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const VerificationView()));
+                        },
                       ),
                     ),
                     const SizedBox(
