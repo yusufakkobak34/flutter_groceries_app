@@ -9,6 +9,8 @@ class VerificationView extends StatefulWidget {
 }
 
 class _VerificationViewState extends State<VerificationView> {
+  TextEditingController txtOTP = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -56,6 +58,39 @@ class _VerificationViewState extends State<VerificationView> {
                         fontSize: 26,
                         fontWeight: FontWeight.w600,
                       ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Kod",
+                          style: TextStyle(
+                            color: TColor.secondaryText,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        TextField(
+                          controller: txtOTP,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            hintText: "- - - -",
+                            hintStyle: TextStyle(
+                                color: TColor.placeholder, fontSize: 17),
+                          ),
+                        ),
+                        Container(
+                          width: double.maxFinite,
+                          height: 1,
+                          color: const Color(0xffE2E2E2),
+                        ),
+                      ],
                     ),
                   ],
                 ),
