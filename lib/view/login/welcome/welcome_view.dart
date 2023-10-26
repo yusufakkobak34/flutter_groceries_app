@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -8,6 +10,12 @@ class WelcomeView extends StatefulWidget {
 }
 
 class _WelcomeViewState extends State<WelcomeView> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+  }
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -24,8 +32,15 @@ class _WelcomeViewState extends State<WelcomeView> {
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Image.asset(
+                  "assets/img/app_logo.png",
+                  width: 60,
+                  height: 60,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -53,12 +68,16 @@ class _WelcomeViewState extends State<WelcomeView> {
                 const SizedBox(
                   height: 20,
                 ),
-                
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 20),
-                 // 
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: RoundButton(
+                    title: "Başlarken",
+                    onPressed: () {},
+                  ),
                 ),
-                
+                const SizedBox(
+                  height: 46,
+                ),
               ],
             ),
           ),
