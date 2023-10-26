@@ -31,6 +31,15 @@ class _SignInViewState extends State<SignInView> {
             Image.asset(
               "assets/img/sign_in_top.png",
               width: media.width,
+            ),
+            SingleChildScrollView(
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    //
+                  ],
+                ),
+              ),
             )
           ],
         ));
