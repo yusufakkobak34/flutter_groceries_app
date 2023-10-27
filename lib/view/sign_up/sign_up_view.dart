@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
-import 'package:flutter_groceries_app/view/sign_up/sign_up_view.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignUpViewState extends State<SignUpView> {
+  TextEditingController txtUsername = TextEditingController();
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
   bool isShow = false;
@@ -63,7 +63,7 @@ class _LoginViewState extends State<LoginView> {
                       height: media.width * 0.15,
                     ),
                     Text(
-                      "Giriş Yapın",
+                      "Kaydolun",
                       style: TextStyle(
                         color: TColor.primaryText,
                         fontSize: 26,
@@ -74,7 +74,7 @@ class _LoginViewState extends State<LoginView> {
                       height: media.width * 0.04,
                     ),
                     Text(
-                      "EMail ve şifrenizi girin",
+                      "Lütfen gerekli alanları doldurun",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: TColor.secondaryText,
@@ -86,8 +86,17 @@ class _LoginViewState extends State<LoginView> {
                       height: media.width * 0.1,
                     ),
                     LineTextField(
+                      title: "Kullanıcı Adı",
+                      placeholder: "Lütfen kullanıcı adı girin",
+                      controller: txtUsername,
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    SizedBox(
+                      height: media.width * 0.07,
+                    ),
+                    LineTextField(
                       title: "EMail",
-                      placeholder: "Lütfen EMail adresinizi girin",
+                      placeholder: "Lütfen EMail adresi girin",
                       controller: txtEmail,
                       keyboardType: TextInputType.emailAddress,
                     ),
@@ -111,27 +120,48 @@ class _LoginViewState extends State<LoginView> {
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Şifreni mi unuttun?",
+                    SizedBox(
+                      height: media.width * 0.04,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          color: TColor.secondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        children: [
+                          TextSpan(
+                            text:
+                                "Devam ederek kullanıcı şunları kabul etmiş olursunuz ",
+                          ),
+                          TextSpan(
+                            text: "Kullanıcı Sözleşmesi",
                             style: TextStyle(
-                              color: TColor.primaryText,
+                              color: TColor.primary,
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                        )
-                      ],
+                          TextSpan(
+                            text: " ve ",
+                          ),
+                          TextSpan(
+                            text: "Gizlilik Sözleşmesi",
+                            style: TextStyle(
+                              color: TColor.primary,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
-                      height: media.width * 0.1,
+                      height: media.width * 0.05,
                     ),
                     RoundButton(
-                      title: "Giriş Yap",
+                      title: "Kaydolun",
                       onPressed: () {},
                     ),
                     SizedBox(
@@ -142,16 +172,13 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpView()));
+                            Navigator.pop(context);
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                "Hesabınız yok mu?",
+                                "Hesabınız var mı?",
                                 style: TextStyle(
                                   color: TColor.primaryText,
                                   fontSize: 14,
@@ -162,7 +189,7 @@ class _LoginViewState extends State<LoginView> {
                                 width: 8,
                               ),
                               Text(
-                                "Kaydolun",
+                                "Giriş Yapın",
                                 style: TextStyle(
                                   color: TColor.primary,
                                   fontSize: 14,
