@@ -5,13 +5,15 @@ class LineTextField extends StatelessWidget {
   final TextEditingController controller;
   final String title;
   final String placeholder;
+  final TextInputType? keyboardType;
+  final bool obscureText;
   final Widget? right;
   const LineTextField(
       {super.key,
       required this.controller,
       required this.title,
       required this.placeholder,
-      this.right});
+      this.right, this.keyboardType, this.obscureText = false});
 
   @override
   Widget build(BuildContext context) {
