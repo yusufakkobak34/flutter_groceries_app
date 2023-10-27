@@ -13,6 +13,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
+  bool isShow = false;
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +88,7 @@ class _LoginViewState extends State<LoginView> {
                       title: "EMail",
                       placeholder: "Lütfen EMail adresinizi girin",
                       controller: txtEmail,
+                      keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(
                       height: media.width * 0.07,
@@ -95,6 +97,18 @@ class _LoginViewState extends State<LoginView> {
                       title: "Şifre",
                       placeholder: "Lütfen şifrenizi girin",
                       controller: txtPassword,
+                      obscureText: isShow,
+                      right: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isShow = !isShow;
+                          });
+                        },
+                        icon: Icon(
+                          !isShow ? Icons.visibility_off : Icons.visibility,
+                          color: TColor.textTitle,
+                        ),
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
