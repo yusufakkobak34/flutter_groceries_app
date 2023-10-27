@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/dropdown.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_groceries_app/view/login/login/login_view.dart';
 
 class SelectLocationView extends StatefulWidget {
   const SelectLocationView({super.key});
@@ -95,10 +96,14 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                     SizedBox(
                       height: media.width * 0.1,
                     ),
-
                     RoundButton(
-                    title: "Kaydet",
-                    onPressed: () {},
+                      title: "Kaydet",
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginView()));
+                      },
                     )
                   ],
                 ),
