@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
-import 'package:flutter_groceries_app/view/sign_up/sign_up_view.dart';
+import 'package:flutter_groceries_app/view/maintab_view/main_tab_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -132,7 +132,12 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     RoundButton(
                       title: "Giriş Yap",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MainTabView()));
+                      },
                     ),
                     SizedBox(
                       height: media.width * 0.02,
@@ -142,10 +147,10 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpView()));
+                            //Navigator.push(
+                            //  context,
+                            // MaterialPageRoute(
+                            //   builder: (context) => const MainTabView()));
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.min,

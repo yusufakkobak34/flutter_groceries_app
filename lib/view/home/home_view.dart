@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
-import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
-import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -58,7 +56,7 @@ class _HomeViewState extends State<HomeView> {
                       height: 15,
                     ),
                     Text(
-                      "Giriş Yapın",
+                      "Ana Sayfa",
                       style: TextStyle(
                         color: TColor.primaryText,
                         fontSize: 26,
