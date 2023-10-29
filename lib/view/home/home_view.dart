@@ -53,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
     },
     {
       "name": "Pirinç",
-      "icon": "assets/img/pulses.png",
+      "icon": "assets/img/rice.png",
       "color": Color(0xff53B175),
     }
   ];
