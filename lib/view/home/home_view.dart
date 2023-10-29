@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/common_widgets/section_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -166,6 +167,12 @@ class _HomeViewState extends State<HomeView> {
                   alignment: Alignment.center,
                   child: Image.asset("assets/img/banner_top.png"),
                 ),
+              ),
+              SectionView(
+                title: "Özel Teklif",
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                onPressed: () {},
               ),
             ],
           ),

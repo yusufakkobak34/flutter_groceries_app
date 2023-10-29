@@ -9,7 +9,7 @@ class SectionView extends StatelessWidget {
   const SectionView(
       {super.key,
       required this.title,
-      required this.isShowSeeAllButton,
+      this.isShowSeeAllButton = true,
       required this.onPressed,
       this.padding});
 
