@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/common_widgets/product_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/section_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -174,6 +175,20 @@ class _HomeViewState extends State<HomeView> {
                     const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                 onPressed: () {},
               ),
+              SizedBox(
+                height: 250,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    itemCount: exclusiveOfferArr.length,
+                    itemBuilder: (context, index) {
+                      var pObj = exclusiveOfferArr[index] as Map? ?? {};
+                      return ProductCell(
+                        pObj: pObj,
+                        onPressed: () {},
+                      );
+                    }),
+              )
             ],
           ),
         ),

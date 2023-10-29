@@ -16,7 +16,8 @@ class ProductCell extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: TColor.placeholder.withOpacity(0.5), width: 1),
+          border:
+              Border.all(color: TColor.placeholder.withOpacity(0.5), width: 1),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -24,7 +25,7 @@ class ProductCell extends StatelessWidget {
             Image.asset(
               pObj['icon'],
               width: 100,
-              height: 75,
+              height: 80,
               fit: BoxFit.contain,
             )
           ],
