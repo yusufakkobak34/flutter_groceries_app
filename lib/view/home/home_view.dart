@@ -79,20 +79,6 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Image.asset(
-            "assets/img/back.png",
-            width: 20,
-            height: 20,
-          ),
-        ),
-      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -104,25 +90,28 @@ class _HomeViewState extends State<HomeView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset("assets/img/color_logo.png", width: 40),
+                    Image.asset("assets/img/color_logo.png", width: 25),
                   ],
                 ),
-                SizedBox(
-                  height: media.width * 0.05,
+                const SizedBox(
+                  height: 4,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
                       "assets/img/location.png",
-                      width: 15,
-                      height: 15,
+                      width: 20,
+                      height: 20,
+                    ),
+                    const SizedBox(
+                      width: 8,
                     ),
                     Text(
-                      "Ana Sayfa",
+                      "Istanbul, Turkiye",
                       style: TextStyle(
                         color: TColor.primaryText,
-                        fontSize: 26,
+                        fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
                     )
