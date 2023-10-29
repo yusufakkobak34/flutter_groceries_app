@@ -82,43 +82,92 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/img/color_logo.png", width: 25),
-                  ],
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/img/location.png",
-                      width: 20,
-                      height: 20,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/img/color_logo.png", width: 25),
+                ],
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/img/location.png",
+                    width: 16,
+                    height: 16,
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Istanbul, Turkiye",
+                    style: TextStyle(
+                      color: TColor.darkGray,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      "Istanbul, Turkiye",
-                      style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  height: 52,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffF2F3F2),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  alignment: Alignment.center,
+                  child: TextField(
+                    controller: txtSearch,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(13.0),
+                        child: Image.asset(
+                          "assets/img/search.png",
+                          width: 20,
+                          height: 20,
+                        ),
                       ),
-                    )
-                  ],
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: "Mağaza Ara",
+                      hintStyle: TextStyle(
+                          color: TColor.secondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  width: double.maxFinite,
+                  height: 115,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffF2F3F2),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  alignment: Alignment.center,
+                  child: Image.asset("assets/img/banner_top.png"),
+                ),
+              ),
+            ],
           ),
         ),
       ),
