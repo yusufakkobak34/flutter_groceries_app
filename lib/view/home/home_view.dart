@@ -176,7 +176,7 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {},
               ),
               SizedBox(
-                height: 250,
+                height: 230,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -186,9 +186,52 @@ class _HomeViewState extends State<HomeView> {
                       return ProductCell(
                         pObj: pObj,
                         onPressed: () {},
+                        onCart: () {},
                       );
                     }),
-              )
+              ),
+              SectionView(
+                title: "Çok Satanlar",
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 230,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    itemCount: bestSellingArr.length,
+                    itemBuilder: (context, index) {
+                      var pObj = bestSellingArr[index] as Map? ?? {};
+                      return ProductCell(
+                        pObj: pObj,
+                        onPressed: () {},
+                        onCart: () {},
+                      );
+                    }),
+              ),
+              SectionView(
+                title: "Bakliyat",
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 230,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    itemCount: groceriesArr.length,
+                    itemBuilder: (context, index) {
+                      var pObj = groceriesArr[index] as Map? ?? {};
+                      return ProductCell(
+                        pObj: pObj,
+                        onPressed: () {},
+                        onCart: () {},
+                      );
+                    }),
+              ),
             ],
           ),
         ),

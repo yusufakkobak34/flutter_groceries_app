@@ -4,7 +4,12 @@ import 'package:flutter_groceries_app/common/color/color_extension.dart';
 class ProductCell extends StatelessWidget {
   final Map pObj;
   final VoidCallback onPressed;
-  const ProductCell({super.key, required this.pObj, required this.onPressed});
+  final VoidCallback onCart;
+  const ProductCell(
+      {super.key,
+      required this.pObj,
+      required this.onPressed,
+      required this.onCart});
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +26,69 @@ class ProductCell extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              pObj['icon'],
-              width: 100,
-              height: 80,
-              fit: BoxFit.contain,
-            ),
-            
-            // breakpoint here. 
             Row(
-              //
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  pObj['icon'],
+                  width: 100,
+                  height: 80,
+                  fit: BoxFit.contain,
+                ),
+              ],
             ),
-
+            const Spacer(),
+            Text(
+              pObj['name'],
+              style: TextStyle(
+                color: TColor.primaryText,
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            Text(
+              "${pObj["qty"]}${pObj["unit"]}",
+              style: TextStyle(
+                color: TColor.secondaryText,
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  pObj['price'],
+                  style: TextStyle(
+                    color: TColor.primaryText,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                InkWell(
+                  onTap: onCart,
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: TColor.primary,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      "assets/img/add.png",
+                      width: 15,
+                      height: 15,
+                    ),
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),
