@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/common_widgets/category_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/product_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/section_view.dart';
 
@@ -214,21 +215,37 @@ class _HomeViewState extends State<HomeView> {
               SectionView(
                 title: "Bakliyat",
                 padding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                 onPressed: () {},
               ),
               SizedBox(
-                height: 230,
+                height: 100,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     itemCount: groceriesArr.length,
                     itemBuilder: (context, index) {
                       var pObj = groceriesArr[index] as Map? ?? {};
-                      return ProductCell(
+                      return CategoryCell(
                         pObj: pObj,
                         onPressed: () {},
-                        onCart: () {},
+                      );
+                    }),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 230,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    itemCount: listArr.length,
+                    itemBuilder: (context, index) {
+                      var pObj = listArr[index] as Map? ?? {};
+                      return CategoryCell(
+                        pObj: pObj,
+                        onPressed: () {},
                       );
                     }),
               ),

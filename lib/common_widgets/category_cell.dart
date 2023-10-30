@@ -20,8 +20,6 @@ class CategoryCell extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: (pObj['color'] as Color? ?? TColor.primary).withOpacity(0.3),
-          border:
-              Border.all(color: TColor.placeholder.withOpacity(0.5), width: 1),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
