@@ -146,7 +146,7 @@ class _SignInViewState extends State<SignInView> {
                       child: RoundIconButton(
                         title: "Google ile devam et",
                         icon: "assets/img/google_logo.png",
-                        bgColor: Color(0xff5383EC),
+                        bgColor: const Color(0xff5383EC),
                         onPressed: () {
                           Navigator.push(
                               context,
@@ -164,7 +164,7 @@ class _SignInViewState extends State<SignInView> {
                       child: RoundIconButton(
                         title: "Facebook ile devam et",
                         icon: "assets/img/fb_logo.png",
-                        bgColor: Color(0xff4a66ac),
+                        bgColor: const Color(0xff4a66ac),
                         onPressed: () {},
                       ),
                     ),

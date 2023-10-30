@@ -131,7 +131,7 @@ class _SignUpViewState extends State<SignUpView> {
                           fontWeight: FontWeight.w500,
                         ),
                         children: [
-                          TextSpan(
+                          const TextSpan(
                             text:
                                 "Devam ederek kullanıcı şunları kabul etmiş olursunuz ",
                           ),
@@ -143,7 +143,7 @@ class _SignUpViewState extends State<SignUpView> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          TextSpan(
+                          const TextSpan(
                             text: " ve ",
                           ),
                           TextSpan(

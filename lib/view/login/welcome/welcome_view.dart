@@ -54,10 +54,10 @@ class _WelcomeViewState extends State<WelcomeView> {
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                     Text(
                       "Hızlı alışverişin keyfini çıkarın",
                       style: TextStyle(
                           color: Colors.white,
