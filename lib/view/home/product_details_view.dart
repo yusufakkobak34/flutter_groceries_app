@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
@@ -271,6 +272,26 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
+                        ),
+                      ),
+                      IgnorePointer(
+                        ignoring: true,
+                        child: RatingBar.builder(
+                          initialRating: 5,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 15,
+                          itemPadding:
+                              const EdgeInsets.symmetric(horizontal: 1.0),
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Color(0xffF3603F),
+                          ),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          },
                         ),
                       ),
                       IconButton(
