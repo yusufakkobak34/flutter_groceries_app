@@ -3,6 +3,7 @@ import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/category_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/product_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/section_view.dart';
+import 'package:flutter_groceries_app/view/home/product_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -186,7 +187,13 @@ class _HomeViewState extends State<HomeView> {
                       var pObj = exclusiveOfferArr[index] as Map? ?? {};
                       return ProductCell(
                         pObj: pObj,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ProductDetails()));
+                        },
                         onCart: () {},
                       );
                     }),
@@ -207,7 +214,13 @@ class _HomeViewState extends State<HomeView> {
                       var pObj = bestSellingArr[index] as Map? ?? {};
                       return ProductCell(
                         pObj: pObj,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ProductDetails()));
+                        },
                         onCart: () {},
                       );
                     }),
