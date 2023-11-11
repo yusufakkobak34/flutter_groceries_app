@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/explore_cell.dart';
+import 'package:flutter_groceries_app/view/explore/explore_detail_view.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -111,10 +112,17 @@ class _ExploreViewState extends State<ExploreView> {
               ),
               itemCount: findProductArr.length,
               itemBuilder: ((context, index) {
-                var pObj = findProductArr[index] as Map? ?? {};
+                var eObj = findProductArr[index] as Map? ?? {};
                 return ExploreCell(
-                  pObj: pObj,
-                  onPressed: () {},
+                  pObj: eObj,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ExploreDetailView(
+                                  eObj: eObj,
+                                )));
+                  },
                 );
               }),
             ),
