@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/common_widgets/explore_cell.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -101,14 +102,20 @@ class _ExploreViewState extends State<ExploreView> {
           ),
           Expanded(
             child: GridView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.2,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8),
+                crossAxisCount: 2,
+                childAspectRatio: 1,
+                crossAxisSpacing: 15,
+                mainAxisSpacing: 15,
+              ),
+              itemCount: findProductArr.length,
               itemBuilder: ((context, index) {
-                return Container();
+                var pObj = findProductArr[index] as Map? ?? {};
+                return ExploreCell(
+                  pObj: pObj,
+                  onPressed: () {},
+                );
               }),
             ),
           )
