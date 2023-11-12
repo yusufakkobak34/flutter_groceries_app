@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/common_widgets/filter_row.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 
 class FilterView extends StatefulWidget {
@@ -10,6 +11,7 @@ class FilterView extends StatefulWidget {
 }
 
 class _FilterViewState extends State<FilterView> {
+  List selectArr = [];
   List filterCatArr = [
     {
       "id": "1",
@@ -101,33 +103,50 @@ class _FilterViewState extends State<FilterView> {
                     ),
                     Column(
                       children: filterCatArr.map((fObj) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                "assets/img/checkbox.png",
-                                width: 25,
-                                height: 25,
-                              ),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  fObj["name"],
-                                  style: TextStyle(
-                                    color: TColor.primaryText,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                        return FilterRow(
+                          fObj: fObj,
+                          isSelect: selectArr.contains(fObj),
+                          onPressed: () {
+                            if (selectArr.contains(fObj)) {
+                              selectArr.remove(fObj);
+                            } else {
+                              selectArr.add(fObj);
+                            }
+                            setState(() {});
+                          },
                         );
                       }).toList(),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Text(
+                        "Markalar",
+                        style: TextStyle(
+                          color: TColor.primaryText,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      children: filterBrandArr.map((fObj) {
+                        return FilterRow(
+                          fObj: fObj,
+                          isSelect: selectArr.contains(fObj),
+                          onPressed: () {
+                            if (selectArr.contains(fObj)) {
+                              selectArr.remove(fObj);
+                            } else {
+                              selectArr.add(fObj);
+                            }
+                            setState(() {});
+                          },
+                        );
+                      }).toList(),
+                    ),
                   ],
                 ),
               ),
