@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/explore_cell.dart';
 import 'package:flutter_groceries_app/view/explore/explore_detail_view.dart';
+import 'package:flutter_groceries_app/view/explore/search_view.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -68,33 +69,41 @@ class _ExploreViewState extends State<ExploreView> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                color: const Color(0xffF2F3F2),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              alignment: Alignment.center,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(13.0),
-                    child: Image.asset(
-                      "assets/img/search.png",
-                      width: 20,
-                      height: 20,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchView()));
+              },
+              child: Container(
+                height: 45,
+                decoration: BoxDecoration(
+                  color: const Color(0xffF2F3F2),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                alignment: Alignment.center,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Image.asset(
+                        "assets/img/search.png",
+                        width: 20,
+                        height: 20,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Mağaza Ara",
-                    style: TextStyle(
-                      color: TColor.secondaryText,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                    Text(
+                      "Mağaza Ara",
+                      style: TextStyle(
+                        color: TColor.secondaryText,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
