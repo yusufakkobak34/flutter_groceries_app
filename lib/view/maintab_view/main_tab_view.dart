@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/view/explore/explore_view.dart';
 import 'package:flutter_groceries_app/view/home/home_view.dart';
+import 'package:flutter_groceries_app/view/my_cart/my_cart_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -39,7 +40,7 @@ class _MainTabViewState extends State<MainTabView>
         children: [
           const HomeView(),
           const ExploreView(),
-          Container(),
+          const MyCartView(),
           Container(),
           Container(),
         ],
