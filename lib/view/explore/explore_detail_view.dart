@@ -102,7 +102,7 @@ class _ExploreDetailViewState extends State<ExploreDetailView> {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 0.85,
+          childAspectRatio: 0.75,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
         ),
@@ -111,6 +111,8 @@ class _ExploreDetailViewState extends State<ExploreDetailView> {
           var pObj = listArr[index] as Map? ?? {};
           return ProductCell(
             pObj: pObj,
+            margin: 8,
+            weight: double.maxFinite,
             onPressed: () {},
             onCart: () {},
           );
