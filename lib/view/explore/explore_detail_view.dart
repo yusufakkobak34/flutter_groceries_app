@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/product_cell.dart';
+import 'package:flutter_groceries_app/view/explore/filter_view.dart';
 
 class ExploreDetailView extends StatefulWidget {
   final Map eObj;
@@ -81,7 +82,10 @@ class _ExploreDetailViewState extends State<ExploreDetailView> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const FilterView()));
+            },
             icon: Image.asset(
               "assets/img/filter_ic.png",
               width: 20,
