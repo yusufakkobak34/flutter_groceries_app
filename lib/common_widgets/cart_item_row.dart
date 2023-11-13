@@ -75,21 +75,30 @@ class CartItemRow extends StatelessWidget {
             const Spacer(),
             Row(
               children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: TColor.primary,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    "assets/img/add.png",
-                    width: 15,
-                    height: 15,
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 45,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: TColor.placeholder.withOpacity(0.5),
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      "assets/img/subtack.png",
+                      width: 20,
+                      height: 20,
+                    ),
                   ),
                 ),
-                const Spacer(),
+                const SizedBox(
+                  width: 15,
+                ),
                 Text(
                   pObj['qty'].toString(),
                   style: TextStyle(
@@ -98,6 +107,31 @@ class CartItemRow extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+                const SizedBox(
+                  width: 15,
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 45,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: TColor.placeholder.withOpacity(0.5),
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      "assets/img/add_green.png",
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
+                ),
+                const Spacer(),
                 Text(
                   "\$${pObj["price"]}",
                   style: TextStyle(
