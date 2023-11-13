@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
-import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_groceries_app/common_widgets/cart_item_row.dart';
 
 class MyCartView extends StatefulWidget {
   const MyCartView({super.key});
@@ -16,7 +16,7 @@ class _MyCartViewState extends State<MyCartView> {
       "icon": "assets/img/bell_pepper_red.png",
       "qty": "1",
       "unit": "1kg,fiyat",
-      "price": 1.99,
+      "price": 2.99,
     },
     {
       "name": "Yumurta",
@@ -69,9 +69,8 @@ class _MyCartViewState extends State<MyCartView> {
               height: 1,
             ),
             itemBuilder: (context, index) {
-              return Container(
-                height: 140,
-              );
+              var pObj = cartArr[index] as Map? ?? {};
+              return CartItemRow(pObj: pObj);
             },
           ),
           Padding(
@@ -79,10 +78,49 @@ class _MyCartViewState extends State<MyCartView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                RoundButton(
-                  title: "Ödemeye Geç",
+                MaterialButton(
                   onPressed: () {},
-                )
+                  height: 60,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(19)),
+                  minWidth: double.maxFinite,
+                  elevation: 0.1,
+                  color: TColor.primary,
+                  child: Stack(
+                    alignment: Alignment.centerRight,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Ödemeye Geç",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4, horizontal: 8),
+                        child: const Text(
+                          "\$10.96",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           )
