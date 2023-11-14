@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/cart_item_row.dart';
+import 'package:flutter_groceries_app/view/my_cart/checkout_view.dart';
 
 class MyCartView extends StatefulWidget {
   const MyCartView({super.key});
@@ -79,7 +80,9 @@ class _MyCartViewState extends State<MyCartView> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showCheckout();
+                  },
                   height: 60,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(19)),
@@ -126,6 +129,17 @@ class _MyCartViewState extends State<MyCartView> {
           )
         ],
       ),
+    );
+  }
+
+  void showCheckout() {
+    showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      isDismissible: false,
+      context: context,
+      builder: (context) {
+        return const CheckoutView();
+      },
     );
   }
 }
