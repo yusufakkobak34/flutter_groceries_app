@@ -75,6 +75,13 @@ class _CheckoutViewState extends State<CheckoutView> {
                     ),
                     const Spacer(),
                     Image.asset(
+                      "assets/img/master.png",
+                      width: 30,
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Image.asset(
                       "assets/img/next.png",
                       height: 15,
                       color: TColor.primaryText,
