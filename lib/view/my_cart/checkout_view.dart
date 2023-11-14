@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/checkout_row.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_groceries_app/view/my_cart/order_accept_view.dart';
 
 class CheckoutView extends StatefulWidget {
   const CheckoutView({super.key});
@@ -144,7 +145,12 @@ class _CheckoutViewState extends State<CheckoutView> {
           ),
           RoundButton(
             title: "Sipariş Et",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const OrderAcceptView()));
+            },
           ),
           const SizedBox(
             height: 15,
