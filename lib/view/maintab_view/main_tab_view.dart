@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/view/account/account_view.dart';
 import 'package:flutter_groceries_app/view/explore/explore_view.dart';
 import 'package:flutter_groceries_app/view/favourite/favourite_view.dart';
 import 'package:flutter_groceries_app/view/home/home_view.dart';
@@ -38,12 +39,12 @@ class _MainTabViewState extends State<MainTabView>
     return Scaffold(
       body: TabBarView(
         controller: controller,
-        children: [
-          const HomeView(),
-          const ExploreView(),
-          const MyCartView(),
-          const FavouriteView(),
-          Container(),
+        children: const [
+          HomeView(),
+          ExploreView(),
+          MyCartView(),
+          FavouriteView(),
+          AccountView(),
         ],
       ),
       bottomNavigationBar: Container(
