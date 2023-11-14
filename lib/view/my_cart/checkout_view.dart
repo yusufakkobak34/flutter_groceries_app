@@ -3,6 +3,7 @@ import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/checkout_row.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 import 'package:flutter_groceries_app/view/my_cart/order_accept_view.dart';
+import 'package:flutter_groceries_app/view/my_cart/order_denied_view.dart';
 
 class CheckoutView extends StatefulWidget {
   const CheckoutView({super.key});
@@ -104,7 +105,17 @@ class _CheckoutViewState extends State<CheckoutView> {
           CheckoutRow(
             title: "Toplam Tutar",
             value: "\$10.96",
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return const Dialog(
+                      backgroundColor: Colors.transparent,
+                      insetPadding: EdgeInsets.symmetric(horizontal: 20),
+                      child: OrderErrorView(),
+                    );
+                  });
+            },
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
