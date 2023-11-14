@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
-import 'package:flutter_groceries_app/common_widgets/cart_item_row.dart';
+import 'package:flutter_groceries_app/common_widgets/favourite_row.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 
 class FavouriteView extends StatefulWidget {
@@ -17,42 +17,42 @@ class _FavouriteViewState extends State<FavouriteView> {
       "icon": "assets/img/diet_coke.png",
       "qty": "355",
       "unit": "ml, Fiyat",
-      "price": "\$1.99",
+      "price": "1.99",
     },
     {
       "name": "Sprite",
       "icon": "assets/img/sprite_can.png",
       "qty": "325",
       "unit": "ml, Fiyat",
-      "price": "\$1.49",
+      "price": "1.49",
     },
     {
       "name": "Elma Suyu",
       "icon": "assets/img/juice_apple_grape.png",
       "qty": "2",
       "unit": "L, Fiyat",
-      "price": "\$15.99",
+      "price": "15.99",
     },
     {
       "name": "Portakal Suyu",
       "icon": "assets/img/orenge_juice.png",
       "qty": "2",
       "unit": "L, Fiyat",
-      "price": "\$15.49",
+      "price": "15.49",
     },
     {
       "name": "Coca Cola",
       "icon": "assets/img/cocacola_can.png",
       "qty": "325",
       "unit": "ml, Fiyat",
-      "price": "\$4.99",
+      "price": "4.99",
     },
     {
       "name": "Pepsi",
       "icon": "assets/img/pepsi_can.png",
       "qty": "325",
       "unit": "ml, Fiyat",
-      "price": "\$4.49",
+      "price": "4.49",
     },
   ];
 
@@ -77,7 +77,7 @@ class _FavouriteViewState extends State<FavouriteView> {
         alignment: Alignment.bottomCenter,
         children: [
           ListView.separated(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             itemCount: listArr.length,
             separatorBuilder: (context, index) => const Divider(
               color: Colors.black26,
@@ -85,7 +85,10 @@ class _FavouriteViewState extends State<FavouriteView> {
             ),
             itemBuilder: (context, index) {
               var pObj = listArr[index] as Map? ?? {};
-              return CartItemRow(pObj: pObj);
+              return FavouriteRow(
+                pObj: pObj,
+                onPressed: () {},
+              );
             },
           ),
           Padding(
