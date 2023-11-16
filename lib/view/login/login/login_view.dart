@@ -3,6 +3,8 @@ import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
 import 'package:flutter_groceries_app/view/maintab_view/main_tab_view.dart';
+import 'package:flutter_groceries_app/view_model/login/login_view_model.dart';
+import 'package:get/get.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -12,10 +14,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  TextEditingController txtEmail = TextEditingController();
-  TextEditingController txtPassword = TextEditingController();
-  bool isShow = false;
-
+  final loginVM = Get.put(LoginViewModel());
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -88,29 +87,27 @@ class _LoginViewState extends State<LoginView> {
                     LineTextField(
                       title: "EMail",
                       placeholder: "Lütfen EMail adresinizi girin",
-                      controller: txtEmail,
+                      controller: loginVM.txtEmail.value,
                       keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(
                       height: media.width * 0.07,
                     ),
-                    LineTextField(
-                      title: "Şifre",
-                      placeholder: "Lütfen şifrenizi girin",
-                      controller: txtPassword,
-                      obscureText: isShow,
-                      right: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isShow = !isShow;
-                          });
-                        },
-                        icon: Icon(
-                          !isShow ? Icons.visibility_off : Icons.visibility,
-                          color: TColor.textTitle,
-                        ),
-                      ),
-                    ),
+                    Obx(() => LineTextField(
+                          title: "Şifre",
+                          placeholder: "Lütfen şifrenizi girin",
+                          controller: loginVM.txtPassword.value,
+                          obscureText: !loginVM.isShowPassword.value,
+                          right: IconButton(
+                            onPressed: () {
+                              loginVM.showPassword();
+                            },
+                            icon: Icon(
+                              !loginVM.isShowPassword.value ? Icons.visibility_off : Icons.visibility,
+                              color: TColor.textTitle,
+                            ),
+                          ),
+                        )),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
