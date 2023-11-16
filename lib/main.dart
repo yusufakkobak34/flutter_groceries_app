@@ -43,6 +43,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
       ),
       home: const MainTabView(),
+      builder: (context, child) {
+        return FlutterEasyLoading(child: child);
+      },
     );
   }
 }
