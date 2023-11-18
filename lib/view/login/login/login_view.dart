@@ -103,7 +103,7 @@ class _LoginViewState extends State<LoginView> {
                               loginVM.showPassword();
                             },
                             icon: Icon(
-                              loginVM.isShowPassword.value
+                              !loginVM.isShowPassword.value
                                   ? Icons.visibility_off
                                   : Icons.visibility,
                               color: TColor.textTitle,
