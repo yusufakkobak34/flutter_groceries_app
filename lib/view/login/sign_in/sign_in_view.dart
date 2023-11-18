@@ -2,7 +2,10 @@ import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_groceries_app/view/login/login/login_view.dart';
 import 'package:flutter_groceries_app/view/login/verification/verification_view.dart';
+import 'package:flutter_groceries_app/view/sign_up/sign_up_view.dart';
+import 'package:get/get.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -52,7 +55,7 @@ class _SignInViewState extends State<SignInView> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: media.width * 1,
+                      height: media.width * 0.7,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -127,6 +130,31 @@ class _SignInViewState extends State<SignInView> {
                       width: double.maxFinite,
                       height: 1,
                       color: const Color(0xffE2E2E2),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: RoundButton(
+                        title: "EMail adresinizle giriş yapın",
+                        bgColor: const Color(0xff5383EC),
+                        onPressed: () {
+                          Get.to(() => const LoginView());
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: RoundButton(
+                        title: "EMail adresinizle kaydolun",
+                        onPressed: () {
+                          Get.to(() => const SignUpView());
+                        },
+                      ),
                     ),
                     const SizedBox(
                       height: 25,
