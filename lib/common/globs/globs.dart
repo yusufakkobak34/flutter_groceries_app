@@ -78,7 +78,7 @@ class Globs {
 
 class SVKey {
   static const mainUrl = "http://10.0.2.2:3001";
-  static const baseUrl = '$mainUrl/api/';
+  static const baseUrl = '$mainUrl/api/app/';
   static const nodeUrl = mainUrl;
   static const svLogin = '${baseUrl}login';
   static const svSignUp = '${baseUrl}sign_up';
