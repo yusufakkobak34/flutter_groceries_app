@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
-import 'package:flutter_groceries_app/view/maintab_view/main_tab_view.dart';
 import 'package:flutter_groceries_app/view_model/login/login_view_model.dart';
 import 'package:get/get.dart';
 
@@ -93,23 +92,25 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(
                       height: media.width * 0.07,
                     ),
-                    Obx(() => LineTextField(
-                          title: "Şifre",
-                          placeholder: "Lütfen şifrenizi girin",
-                          controller: loginVM.txtPassword.value,
-                          obscureText: !loginVM.isShowPassword.value,
-                          right: IconButton(
-                            onPressed: () {
-                              loginVM.showPassword();
-                            },
-                            icon: Icon(
-                              !loginVM.isShowPassword.value
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
-                              color: TColor.textTitle,
-                            ),
+                    Obx(
+                      () => LineTextField(
+                        title: "Şifre",
+                        placeholder: "Lütfen şifrenizi girin",
+                        controller: loginVM.txtPassword.value,
+                        obscureText: !loginVM.isShowPassword.value,
+                        right: IconButton(
+                          onPressed: () {
+                            loginVM.showPassword();
+                          },
+                          icon: Icon(
+                            !loginVM.isShowPassword.value
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: TColor.textTitle,
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -132,10 +133,7 @@ class _LoginViewState extends State<LoginView> {
                     RoundButton(
                       title: "Giriş Yap",
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MainTabView()));
+                        loginVM.serviceCallLogin();
                       },
                     ),
                     SizedBox(

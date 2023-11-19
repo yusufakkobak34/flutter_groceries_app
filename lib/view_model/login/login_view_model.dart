@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_groceries_app/common/service/service_call.dart';
 import 'package:get/get.dart';
 
 class LoginViewModel extends GetxController {
@@ -12,13 +13,15 @@ class LoginViewModel extends GetxController {
   void onInit() {
     super.onInit();
     if (kDebugMode) {
-      print("Login View Model init.");
+      print("Login View Model init");
     }
     txtEmail.value.text = "test@gmail.com";
     txtPassword.value.text = "123456";
   }
 
-  void serviceCallLogin() {}
+  void serviceCallLogin() {
+    ServiceCall.post(, path)
+  }
 
   void showPassword() {
     isShowPassword.value = !isShowPassword.value;
