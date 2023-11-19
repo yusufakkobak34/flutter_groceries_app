@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/account_row.dart';
+import 'package:flutter_groceries_app/view_model/splash/splash_view_model.dart';
+import 'package:get/get.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({super.key});
@@ -10,6 +12,8 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountViewState extends State<AccountView> {
+  final splashVM = Get.find<SplashViewModel>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,7 +129,9 @@ class _AccountViewState extends State<AccountView> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        splashVM.logout();
+                      },
                       height: 60,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(19)),
