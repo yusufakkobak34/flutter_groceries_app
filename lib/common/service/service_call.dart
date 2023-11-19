@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -7,8 +6,13 @@ typedef ResSucess = Future<void> Function(Map<String, dynamic>);
 typedef ResFailure = Future<void> Function(dynamic);
 
 class ServiceCall {
-  static void post(Map<String, dynamic> parameter, String path,
-      {bool isToken = false, ResSucess? withSuccess, ResFailure? failure}) {
+  static void post(
+    Map<String, dynamic> parameter,
+    String path, {
+    bool isToken = false,
+    ResSucess? withSuccess,
+    ResFailure? failure,
+  }) {
     Future(() {
       try {
         var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
@@ -17,7 +21,7 @@ class ServiceCall {
             .then((value) {
           if (kDebugMode) {
             print(value.body);
-          }
+          } 
           try {
             var jsonObj =
                 json.decode(value.body) as Map<String, dynamic>? ?? {};

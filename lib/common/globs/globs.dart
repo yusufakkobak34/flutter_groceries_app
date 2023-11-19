@@ -14,6 +14,10 @@ class Globs {
     EasyLoading.show(status: status);
   }
 
+  static void hideHUD() {
+    EasyLoading.dismiss();
+  }
+
   static void udSet(dynamic data, String key) {
     var jsonStr = json.encode(data);
     prefs?.setString(key, jsonStr);
@@ -74,7 +78,7 @@ class Globs {
 
 class SVKey {
   static const mainUrl = "http://localhost:3001";
-  static const baseUrl = '$mainUrl/api/app/';
+  static const baseUrl = '$mainUrl/api/';
   static const nodeUrl = mainUrl;
   static const svLogin = '${baseUrl}login';
   static const svSignUp = '${baseUrl}sign_up';

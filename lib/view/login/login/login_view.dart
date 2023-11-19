@@ -134,6 +134,7 @@ class _LoginViewState extends State<LoginView> {
                       title: "Giriş Yap",
                       onPressed: () {
                         loginVM.serviceCallLogin();
+                        
                       },
                     ),
                     SizedBox(
