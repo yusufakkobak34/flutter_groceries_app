@@ -5,7 +5,8 @@ import 'package:flutter_groceries_app/common/service/service_call.dart';
 import 'package:flutter_groceries_app/view/maintab_view/main_tab_view.dart';
 import 'package:get/get.dart';
 
-class LoginViewModel extends GetxController {
+class SignUpViewModel extends GetxController {
+  final txtUsername = TextEditingController().obs;
   final txtEmail = TextEditingController().obs;
   final txtPassword = TextEditingController().obs;
   final isShowPassword = false.obs;
@@ -15,39 +16,43 @@ class LoginViewModel extends GetxController {
   void onInit() {
     super.onInit();
     if (kDebugMode) {
-      print("Login View Model init");
+      print("SignUp ViewModel init");
     }
-    txtEmail.value.text = "testuser@gmail.com";
-    txtPassword.value.text = "123456";
+    //txtUsername.value.text = "Demo User";
+    //txtEmail.value.text = "user1@gmail.com";
+    //txtPassword.value.text = "123456";
   }
 
-  void serviceCallLogin() {
+  void serviceCallSignUp() {
+    if (txtUsername.value.text.isEmpty) {
+      Get.snackbar(Globs.appName, "Lütfen kullanıcı adı girin");
+      return;
+    }
+
     if (!GetUtils.isEmail(txtEmail.value.text)) {
       Get.snackbar(Globs.appName, "Lütfen geçerli bir email adresi girin");
     }
 
     if (txtPassword.value.text.length < 6) {
       Get.snackbar(Globs.appName, "Lütfen en az 6 karakterli bir şifre girin");
+      return;
     }
 
     Globs.showHUD();
     ServiceCall.post({
+      "username": txtUsername.value.text,
       "email": txtEmail.value.text,
       "password": txtPassword.value.text,
       "device_token": "",
-    }, SVKey.svLogin, withSuccess: (resObj) async {
+    }, SVKey.svSignUp, withSuccess: (resObj) async {
       Globs.hideHUD();
-
       if (resObj[KKey.status] == "1") {
         var payload = resObj[KKey.payload] as Map? ?? {};
         Globs.udSet(payload, Globs.userPayload);
         Globs.udBoolSet(true, Globs.userLogin);
-        Get.delete<LoginViewModel>();
+        Get.delete<SignUpViewModel>();
         Get.to(() => const MainTabView());
-      } else {
-        //
-      }
-
+      } else {}
       Get.snackbar(Globs.appName, resObj["message"].toString());
     }, failure: (err) async {
       Globs.hideHUD();

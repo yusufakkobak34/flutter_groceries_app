@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/common_widgets/line_textfield.dart';
 import 'package:flutter_groceries_app/common_widgets/round_button.dart';
+import 'package:flutter_groceries_app/view_model/register/sign_up_viewmodel.dart';
+import 'package:get/get.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -11,10 +13,7 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  TextEditingController txtUsername = TextEditingController();
-  TextEditingController txtEmail = TextEditingController();
-  TextEditingController txtPassword = TextEditingController();
-  bool isShow = false;
+  final signUpVM = Get.put(SignUpViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +87,7 @@ class _SignUpViewState extends State<SignUpView> {
                     LineTextField(
                       title: "Kullanıcı Adı",
                       placeholder: "Lütfen kullanıcı adı girin",
-                      controller: txtUsername,
+                      controller: signUpVM.txtUsername.value,
                       keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(
@@ -97,29 +96,29 @@ class _SignUpViewState extends State<SignUpView> {
                     LineTextField(
                       title: "EMail",
                       placeholder: "Lütfen EMail adresi girin",
-                      controller: txtEmail,
-                      keyboardType: TextInputType.emailAddress,
+                      controller: signUpVM.txtEmail.value,
+                      keyboardType: TextInputType.text,
                     ),
                     SizedBox(
                       height: media.width * 0.07,
                     ),
-                    LineTextField(
-                      title: "Şifre",
-                      placeholder: "Lütfen şifrenizi girin",
-                      controller: txtPassword,
-                      obscureText: isShow,
-                      right: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isShow = !isShow;
-                          });
-                        },
-                        icon: Icon(
-                          !isShow ? Icons.visibility_off : Icons.visibility,
-                          color: TColor.textTitle,
-                        ),
-                      ),
-                    ),
+                    Obx(() => LineTextField(
+                          title: "Şifre",
+                          placeholder: "Lütfen şifrenizi girin",
+                          controller: signUpVM.txtPassword.value,
+                          obscureText: !signUpVM.isShowPassword.value,
+                          right: IconButton(
+                            onPressed: () {
+                              signUpVM.showPassword();
+                            },
+                            icon: Icon(
+                              !signUpVM.isShowPassword.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: TColor.textTitle,
+                            ),
+                          ),
+                        )),
                     SizedBox(
                       height: media.width * 0.04,
                     ),
@@ -162,7 +161,9 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                     RoundButton(
                       title: "Kaydolun",
-                      onPressed: () {},
+                      onPressed: () {
+                        signUpVM.serviceCallSignUp();
+                      },
                     ),
                     SizedBox(
                       height: media.width * 0.02,
