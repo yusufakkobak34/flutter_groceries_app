@@ -4,6 +4,8 @@ import 'package:flutter_groceries_app/common_widgets/category_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/product_cell.dart';
 import 'package:flutter_groceries_app/common_widgets/section_view.dart';
 import 'package:flutter_groceries_app/view/home/product_details_view.dart';
+import 'package:flutter_groceries_app/view_model/home/home_view_model.dart';
+import 'package:get/get.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,22 +17,24 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   TextEditingController txtSearch = TextEditingController();
 
-  List exclusiveOfferArr = [
-    {
-      "name": "Organik Muz",
-      "icon": "assets/img/banana.png",
-      "qty": "7",
-      "unit": "adet,fiyat",
-      "price": "\$1.99"
-    },
-    {
-      "name": "Kırmızı Elma",
-      "icon": "assets/img/apple.png",
-      "qty": "7",
-      "unit": "adet,fiyat",
-      "price": "\$1.99"
-    },
-  ];
+  final homeVM = Get.put(HomeViewModel());
+
+  // List exclusiveOfferArr = [
+  //   {
+  //     "name": "Organik Muz",
+  //     "icon": "assets/img/banana.png",
+  //     "qty": "7",
+  //     "unit": "adet,fiyat",
+  //     "price": "\$1.99"
+  //   },
+  //   {
+  //     "name": "Kırmızı Elma",
+  //     "icon": "assets/img/apple.png",
+  //     "qty": "7",
+  //     "unit": "adet,fiyat",
+  //     "price": "\$1.99"
+  //   },
+  // ];
 
   List bestSellingArr = [
     {
@@ -178,10 +182,10 @@ class _HomeViewState extends State<HomeView> {
               ),
               SizedBox(
                 height: 230,
-                child: ListView.builder(
+                child: Obx(() => ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    itemCount: exclusiveOfferArr.length,
+                    itemCount: homeVM.offerArr.length,
                     itemBuilder: (context, index) {
                       var pObj = exclusiveOfferArr[index] as Map? ?? {};
                       return ProductCell(
@@ -195,7 +199,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                         onCart: () {},
                       );
-                    }),
+                    })),
               ),
               SectionView(
                 title: "Çok Satanlar",

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
+import 'package:flutter_groceries_app/model/offer/offer_product_model.dart';
 
 class ProductCell extends StatelessWidget {
-  final Map pObj;
+  final OfferProductModel pObj;
   final VoidCallback onPressed;
   final VoidCallback onCart;
   final double margin;
