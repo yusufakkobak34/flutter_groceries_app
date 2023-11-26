@@ -48,6 +48,7 @@ dependencies:
   custom_map_markers: ^0.0.2+1
   get_it: ^7.6.4
   flutter_timezone: ^1.0.8
+  cached_network_image: ^3.3.0
 
 dependency_overrides:
   intl: ^0.18.1  
