@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_groceries_app/common/color/color_extension.dart';
 import 'package:flutter_groceries_app/model/offer/offer_product_model.dart';
@@ -36,17 +37,19 @@ class ProductCell extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  pObj['icon'],
-                  width: 100,
-                  height: 80,
-                  fit: BoxFit.contain,
-                ),
+              CachedNetworkImage(
+                imageUrl: pObj.image ?? "",
+                placeholder: (context,url) => const CircularProgressIndicator(),
+                errorWidget: (context,url,error) => const Icon(Icons.error),
+                width: 100,
+                height: 80,
+                fit: BoxFit.contain,
+              ),
               ],
             ),
             const Spacer(),
             Text(
-              pObj['name'],
+              pObj.name ?? "",
               style: TextStyle(
                 color: TColor.primaryText,
                 fontSize: 16,
@@ -57,7 +60,7 @@ class ProductCell extends StatelessWidget {
               height: 2,
             ),
             Text(
-              "${pObj["qty"]}${pObj["unit"]}",
+              "${pObj.unitValue}${pObj.unitName}",
               style: TextStyle(
                 color: TColor.secondaryText,
                 fontSize: 16,
@@ -68,7 +71,7 @@ class ProductCell extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  pObj['price'],
+                  "\$${pObj.offerPrice ?? pObj.price}",
                   style: TextStyle(
                     color: TColor.primaryText,
                     fontSize: 18,
