@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
 class TypeModel {
   int? typeId;
   String? typeName;
   String? image;
-  String? color;
+  Color? color;
 
   TypeModel({
     this.typeId,
